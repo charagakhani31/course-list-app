@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Load app.js FIRST, then Alpine -->
+<script src="/app.js" defer></script>
+<script defer src="https://unpkg.com/alpinejs" defer></script>
+  <title>Courses</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #808080;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+
+<body x-data="App()" x-init="getCourses()">
+  <h1>Courses</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Code</th>
+        <th>Title</th>
+        <th>CrHr</th>
+        <th>Semester</th>
+      </tr>
+    </thead>
+    <tbody>
+      <template x-for="course in courses" :key="course.cid">
+        <tr>
+          <td x-text="course.cid"></td>
+          <td x-text="course.code"></td>
+          <td x-text="course.title"></td>
+          <td x-text="course.crhr"></td>
+          <td x-text="course.semester"></td>
+        </tr>
+      </template>
+    </tbody>
+  </table>
+</body>
+</html>
